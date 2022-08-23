@@ -12,7 +12,7 @@ const csv = (data, header, fileName) => {
 };
 
 const excel = (data, header, fileName) => {
-  const contentHeader = (header ? `<thead><tr><td>${header.map(e => e.name).join('</td><td>')}</td><tr></thead>` : '');
+  const contentHeader = (header ? `<thead><td>${header.map(e => e.name).join('</td><td>')}</td></thead>` : '');
   const contentBody = data.map(e => Utilities.concat.excel(e));
   const content = `<table>${contentHeader}<tbody>${contentBody.join('')}</tbody></table>`;
 
