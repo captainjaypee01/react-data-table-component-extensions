@@ -24,9 +24,9 @@ var csv = function csv(data, header) {
 };
 
 var excel = function excel(data, header) {
-  var contentHeader = header ? "<thead><tr><td>".concat(header.map(function (e) {
+  var contentHeader = header ? "<thead><td>".concat(header.map(function (e) {
     return e.name;
-  }).join('</td><td>'), "</td><tr></thead>") : '';
+  }).join('</td><td>'), "</td></thead>") : '';
   var contentBody = data.map(function (e) {
     return _utilities["default"].concat.excel(e);
   });
