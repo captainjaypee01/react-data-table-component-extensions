@@ -166,7 +166,7 @@ DataTableExtensions.defaultProps = {
   children: null,
   filterHidden: true,
   filterPlaceholder: 'Filter Table',
-  filterDigit: 2,
+  filterDigit: 0,
   fileName: document.title,
 };
 
