@@ -98,7 +98,7 @@ function (_Component) {
         }, function () {
           _this3.checkHeader();
 
-          if (filter.length > 2) {
+          if (filter.length > 0) {
             _this3.onFilter(filter);
           }
         });
@@ -138,7 +138,7 @@ function (_Component) {
       var filterHidden = this.props.filterHidden;
       var filtered = constData;
 
-      if (value.length > 2) {
+      if (value.length > 0) {
         if (!filterHidden) {
           this.onDataRender();
         }
