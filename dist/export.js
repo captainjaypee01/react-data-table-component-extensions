@@ -9,7 +9,7 @@ var _utilities = _interopRequireDefault(require("./utilities"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var csv = function csv(data, header) {
+var csv = function csv(data, header, fileName) {
   var contentHeader = header ? "".concat(header.map(function (e) {
     return e.name;
   }).join(';'), "\n") : '';
@@ -19,11 +19,11 @@ var csv = function csv(data, header) {
   return {
     content: content,
     type: 'text/csv',
-    name: "".concat(document.title, ".csv")
+    name: "".concat(fileName || document.title, ".csv")
   };
 };
 
-var excel = function excel(data, header) {
+var excel = function excel(data, header, fileName) {
   var contentHeader = header ? "<thead><td>".concat(header.map(function (e) {
     return e.name;
   }).join('</td><td>'), "</td></thead>") : '';
@@ -34,12 +34,12 @@ var excel = function excel(data, header) {
   return {
     content: content,
     type: 'application/vnd.ms-excel',
-    name: "".concat(document.title, ".xls")
+    name: "".concat(fileName || document.title, ".xls")
   };
 };
 
-var print = function print(data, header) {
-  var _excel = excel(data, header),
+var print = function print(data, header, fileName) {
+  var _excel = excel(data, header, fileName),
       content = _excel.content;
 
   var style = '\n' + 'body, table { \n' + 'font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Roboto\', \'Oxygen\', \'Ubuntu\', \'Cantarell\', \'Fira Sans\', \'Droid Sans\', \'Helvetica Neue\', sans-serif; \n' + 'font-size:12px \n' + '}\n' + 'table {\n' + 'width: 100%;\n' + '}\n' + 'thead {\n' + 'font-weight: bold;\n' + '}';

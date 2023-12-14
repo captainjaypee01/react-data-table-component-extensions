@@ -116,11 +116,12 @@ function (_Component) {
     value: function onExport(e, type) {
       this.onDataRender();
       var exportHeaders = this.props.exportHeaders;
+      var fileName = this.props.fileName;
       var _this$raw = this.raw,
           data = _this$raw.data,
           header = _this$raw.header;
 
-      var exportData = _export["default"][type](data, exportHeaders ? header : null);
+      var exportData = _export["default"][type](data, exportHeaders ? header : null, fileName);
 
       _utilities["default"].download(exportData);
 
